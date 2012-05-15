@@ -67,10 +67,14 @@ Usage
 
 Simple example:
 
-	import sys, unified2.parser
-	for pkt, pkt_tail in unified2.parser.parse(sys.argv[1]):
-		print 'Packet:', pkt
-		if pkt_tail: print 'Packet tail:', pkt_tail
+	import unified2.parser
+	for ev, ev_tail in unified2.parser.parse('/var/log/snort/snort.u2.1337060186'):
+		print 'Event:', ev
+		if ev_tail: print 'Event tail:', ev_tail
+
+Event object here is a dict of metadata and a "tail", which can either be a blob
+or a similar recursively-parsed tuple of metadata-dict and "tail" (e.g. for
+UNIFIED2_EXTRA_DATA).
 
 unified2.parser.Parser interface is best illustrated by the unified2.parser.read
 function:
@@ -79,10 +83,11 @@ function:
 	while True:
 		buff = parser.read(src)
 		if not buff: break # EOF
+		buff_agg += buff
 		while True:
-			buff_agg, pkt = parser.process(buff_agg + buff)
-			if pkt is None: break
-			yield pkt
+			buff_agg, ev = parser.process(buff_agg)
+			if ev is None: break
+			yield ev
 
 Idea here is that Parser.read method should be called with a stream (e.g. a file
 object), returning however many bytes parser needs to get the next parseable

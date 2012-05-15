@@ -72,9 +72,9 @@ def read(src):
 		if not buff: break # EOF
 		buff_agg += buff
 		while True:
-			buff_agg, pkt = parser.process(buff_agg)
-			if pkt is None: break
-			yield pkt
+			buff_agg, ev = parser.process(buff_agg)
+			if ev is None: break
+			yield ev
 
 def parse(path):
 	'Event generator from path to u2 file.'
@@ -83,6 +83,6 @@ def parse(path):
 
 if __name__ == '__main__':
 	import sys
-	for pkt, pkt_tail in parse(sys.argv[1]):
-		print('Packet:', pkt)
-		if pkt_tail: print('Packet tail:', pkt_tail)
+	for ev, ev_tail in parse(sys.argv[1]):
+		print('Event:', ev)
+		if ev_tail: print('Event tail:', ev_tail)
