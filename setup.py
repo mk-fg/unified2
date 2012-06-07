@@ -13,7 +13,7 @@ except IOError: readme = ''
 setup(
 
 	name = 'unified2',
-	version = '12.06.0',
+	version = '12.06.1',
 	author = 'Mike Kazantsev',
 	author_email = 'mk.fraggod@gmail.com',
 	license = 'WTFPL',

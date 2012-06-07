@@ -7,6 +7,11 @@ objects.
 It does not resolve rule ids and is not meant to be a replacement for
 [barnyard2](https://github.com/firnsy/barnyard2) or Snort itself in that role.
 
+In fact, I've found that snort-produced text logs are enough for my purposes, so
+**this module isn't really maintained or updated** (at least by me), so if you
+really find it useful, I encourage you to fork the module, and contact me to
+transfer pypi package ownership to you.
+
 Main purpose is to extract a packet data from the log, associated with some
 particular triggered (and resolved/logged separately via other means,
 e.g. alert_syslog or alert_csv snort modules) rule, so I haven't paid much
