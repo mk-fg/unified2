@@ -4,12 +4,16 @@ import os, sys
 
 from setuptools import setup, find_packages
 
-pkg_root = os.path.dirname(__file__)
+# Error-handling here is to allow package to be built w/o README included
+try:
+	readme = open(os.path.join(
+		os.path.dirname(__file__), 'README.md' )).read()
+except IOError: readme = ''
 
 setup(
 
 	name = 'unified2',
-	version = '12.05.2',
+	version = '12.06.0',
 	author = 'Mike Kazantsev',
 	author_email = 'mk.fraggod@gmail.com',
 	license = 'WTFPL',
@@ -17,7 +21,7 @@ setup(
 	url = 'http://github.com/mk-fg/unified2',
 
 	description = 'unified2 IDS binary log format parser',
-	long_description = open(os.path.join(pkg_root, 'README.md')).read(),
+	long_description = readme,
 
 	classifiers = [
 		'Development Status :: 4 - Beta',
