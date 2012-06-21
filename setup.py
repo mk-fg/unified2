@@ -7,13 +7,13 @@ from setuptools import setup, find_packages
 # Error-handling here is to allow package to be built w/o README included
 try:
 	readme = open(os.path.join(
-		os.path.dirname(__file__), 'README.md' )).read()
+		os.path.dirname(__file__), 'README.txt' )).read()
 except IOError: readme = ''
 
 setup(
 
 	name = 'unified2',
-	version = '12.06.1',
+	version = '12.06.2',
 	author = 'Mike Kazantsev',
 	author_email = 'mk.fraggod@gmail.com',
 	license = 'WTFPL',
