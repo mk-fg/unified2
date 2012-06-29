@@ -13,7 +13,7 @@ except IOError: readme = ''
 setup(
 
 	name = 'unified2',
-	version = '12.06.2',
+	version = '12.06.3',
 	author = 'Mike Kazantsev',
 	author_email = 'mk.fraggod@gmail.com',
 	license = 'WTFPL',
@@ -37,4 +37,6 @@ setup(
 		'Topic :: Security',
 		'Topic :: System :: Networking :: Monitoring' ],
 
-	packages = find_packages() )
+	packages = find_packages(),
+	package_data = {'': ['README.txt']},
+	exclude_package_data = {'': ['README.*']} )
