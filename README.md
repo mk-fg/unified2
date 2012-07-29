@@ -64,7 +64,7 @@ But, you really shouldn't do that.
 
 Current-git version can be installed like this:
 
-	% pip install -e 'git://github.com/mk-fg/unified2.git#egg=unified2'
+	% pip install 'git+https://github.com/mk-fg/unified2.git#egg=unified2'
 
 
 Usage
